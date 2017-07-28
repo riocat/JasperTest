@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="jasperTest">
+    <output-path>$PROJECT_DIR$/out/artifacts/jasperTest</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JasperTest" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="JasperTest/web/Web" />
+    </root>
+  </artifact>
+</component>
