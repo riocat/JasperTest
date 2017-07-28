@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yang.pagesTest.dao.LotteryMapper">
+	<select id="getPartLottery" parameterType="com.yang.pagesTest.condition.LotteryConditon"
+		resultType="com.yang.pagesTest.model.Lottery">
+		SELECT 
+			* 
+		FROM 
+			lottery l 
+		WHERE
+			1=1
+			<if test="no != 0">
+				AND no = #{no}
+			</if>
+		ORDER BY 
+			l.id DESC
+		LIMIT #{start},#{per}
+	</select>
+	
+	<select id="getPageNum" parameterType="com.yang.pagesTest.condition.LotteryConditon"
+		resultType="int">
+		SELECT 
+			COUNT(*)
+		FROM 
+			lottery l 
+		WHERE
+			1=1
+			<if test="no != 0">
+				AND no = #{no}
+			</if>
+	</select>
+</mapper>
