@@ -125,4 +125,9 @@ public class ReportTestController {
         }
 
     }
+
+    @RequestMapping("japer4")
+    public String getReport4() {
+        return "reportmain"; // 对应jasper-defs.xml中的bean id
+    }
 }
