@@ -63,12 +63,12 @@
             </ul>
         </li>--%>
         <li>
-            <div class="link"><i class="fa fa-code"></i>report<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>simple Sub Report<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="#" onclick="iframeChange('/report/japer4')">excel</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer7')">销售订单</a></li>
             </ul>
         </li>
-        <li>
+<%--        <li>
             <div class="link"><i class="fa fa-code"></i>sub<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
                 <li><a href="/report/japer6?type=excel" onclick="iframeChange('')">excel</a></li>
@@ -76,7 +76,7 @@
                 <li><a href="/report/japer6?type=html" onclick="iframeChange('')">html</a></li>
                 <li><a href="/report/japer6?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
-        </li>
+        </li>--%>
     </ul>
 </div>
 <div class="main">

@@ -264,4 +264,9 @@ public class ReportTestController {
         }
 
     }
+
+    @RequestMapping("japer7")
+    public String getReport7() {
+        return "reportmain";
+    }
 }

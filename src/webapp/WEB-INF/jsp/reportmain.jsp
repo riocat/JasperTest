@@ -27,16 +27,16 @@
     <div>
         <ol class="breadcrumb">
             <li>response</li>
-            <li><a href="/report/japer3?type=excel">excel</a></li>
-            <li><a href="/report/japer3?type=pdf">pdf</a></li>
-            <li><a href="/report/japer3?type=html">html</a></li>
-            <li><a href="/report/japer3?type=word">word</a></li>
+            <li><a href="/report/japer6?type=excel">excel</a></li>
+            <li><a href="/report/japer6?type=pdf">pdf</a></li>
+            <li><a href="/report/japer6?type=html">html</a></li>
+            <li><a href="/report/japer6?type=word">word</a></li>
         </ol>
     </div>
 </div>
 <div style="margin-top: 50px;border-top-color: #8c8c8c;border-top-style: solid;border-top-width: thin">
     <%--<iframe  width="100%" height="570" src="/report/japer3?type=html"></iframe>--%>
-    <object style="border:0px;min-height:460px;" type="text/x-scriptlet" data="/report/japer3?type=html" width=100% ></object>
+    <object style="border:0px;min-height:460px;" type="text/x-scriptlet" data="/report/japer6?type=html" width=100% ></object>
 </div>
 </body>
 </html>
