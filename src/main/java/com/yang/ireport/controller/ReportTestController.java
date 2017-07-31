@@ -177,10 +177,10 @@ public class ReportTestController {
         JRAbstractBeanDataSource dataSource = new JRBeanCollectionDataSource(list);
         try {
             ouputStream = response.getOutputStream();
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reportFile.getPath(), new HashMap<String, Object>(),dataSource);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportFile.getPath(), new HashMap<String, Object>(), dataSource);
             JasperReportsUtils.render(exporter, jasperPrint, ouputStream);
             ouputStream.flush();
-        }  catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -191,6 +191,73 @@ public class ReportTestController {
                 try {
                     ouputStream.close();
                 } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    @RequestMapping("japer6")
+    public void getReport6(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String filePath = request.getServletContext().getRealPath("/WEB-INF/report/goodsInfo.jasper");
+        File reportFile = new File(filePath);
+        String path = reportFile.getPath();
+
+
+        if ("pdf".equals(type)) {
+//            response.setContentType("application/pdf");
+//            response.setHeader("Content-Disposition", "attachment; filename=\"" + URLEncoder.encode("report1", "UTF-8") + "\"" + ".pdf");
+            JRAbstractExporter exporter = new JRPdfExporter();
+            createReportWithConnection2(response, reportFile, exporter);
+        } else if ("html".equals(type)) {
+            response.setContentType("text/html");
+            JRAbstractExporter exporter = new HtmlExporter();
+            createReportWithConnection2(response, reportFile, exporter);
+        } else if ("excel".equals(type)) {
+            response.setContentType("application/vnd.ms-excel");
+            response.setHeader("Content-Disposition", "attachment; filename=\"" + URLEncoder.encode("report1", "UTF-8") + "\"" + ".xls");
+            JRAbstractExporter exporter = new JRXlsExporter();
+            createReportWithConnection2(response, reportFile, exporter);
+        } else if ("word".equals(type)) {
+            response.setContentType("application/vnd.ms-excel");
+            response.setHeader("Content-Disposition", "attachment; filename=\"" + URLEncoder.encode("report1", "UTF-8") + "\"" + ".doc");
+            JRAbstractExporter exporter = new JRDocxExporter();
+            createReportWithConnection2(response, reportFile, exporter);
+        }
+    }
+
+    private void createReportWithConnection2(HttpServletResponse response, File reportFile, JRAbstractExporter exporter) {
+        Connection connection = null;
+        ServletOutputStream ouputStream = null;
+        HashMap<String, Object> pMap = new HashMap<String, Object>();
+        pMap.put("orderCode", "PO1707190012");
+        try {
+            connection = dataSource.getConnection();
+            ouputStream = response.getOutputStream();
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportFile.getPath(), pMap, connection);
+            JasperReportsUtils.render(exporter, jasperPrint, ouputStream);
+            ouputStream.flush();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JRException e) {
+            e.printStackTrace();
+        } finally {
+            if (ouputStream != null) {
+                try {
+                    ouputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }

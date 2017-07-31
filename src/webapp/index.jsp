@@ -35,7 +35,7 @@
 <body>
 <div class="lefttree">
     <ul id="accordion" class="accordion">
-        <li>
+        <%--<li>
             <div class="link"><i class="fa fa-paint-brush"></i>Spring MVC<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
                 <li><a href="/report/japer?type=pdf" onclick="iframeChange('')">pdf</a></li>
@@ -43,7 +43,7 @@
                 <li><a href="/report/japer2?type=pdf" onclick="iframeChange('')">pdf</a></li>
                 <li><a href="/report/japer2?type=html" onclick="iframeChange('')">HTML</a></li>
             </ul>
-        </li>
+        </li>--%>
         <li>
             <div class="link"><i class="fa fa-code"></i>response<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
@@ -53,7 +53,7 @@
                 <li><a href="/report/japer3?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
         </li>
-        <li>
+        <%--<li>
             <div class="link"><i class="fa fa-code"></i>javaBean<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
                 <li><a href="/report/japer5?type=excel" onclick="iframeChange('')">excel</a></li>
@@ -61,11 +61,20 @@
                 <li><a href="/report/japer5?type=html" onclick="iframeChange('')">html</a></li>
                 <li><a href="/report/japer5?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
-        </li>
+        </li>--%>
         <li>
             <div class="link"><i class="fa fa-code"></i>report<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
                 <li><a href="#" onclick="iframeChange('/report/japer4')">excel</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="link"><i class="fa fa-code"></i>sub<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="/report/japer6?type=excel" onclick="iframeChange('')">excel</a></li>
+                <li><a href="/report/japer6?type=pdf" onclick="iframeChange('')">pdf</a></li>
+                <li><a href="/report/japer6?type=html" onclick="iframeChange('')">html</a></li>
+                <li><a href="/report/japer6?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
         </li>
     </ul>
