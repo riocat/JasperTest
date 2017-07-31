@@ -77,6 +77,15 @@
                 <li><a href="/report/japer6?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
         </li>--%>
+            <li>
+                <div class="link"><i class="fa fa-code"></i>chart<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a href="/report/japer8?type=excel" onclick="iframeChange('')">excel</a></li>
+                    <li><a href="/report/japer8?type=pdf" onclick="iframeChange('')">pdf</a></li>
+                    <li><a href="/report/japer8?type=html" onclick="iframeChange('')">html</a></li>
+                    <li><a href="/report/japer8?type=word" onclick="iframeChange('')">word</a></li>
+                </ul>
+            </li>
     </ul>
 </div>
 <div class="main">

@@ -269,4 +269,9 @@ public class ReportTestController {
     public String getReport7() {
         return "reportmain";
     }
+
+    @RequestMapping("japer8")
+    public void getReport8(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        createResponse(type, request, response, "/WEB-INF/report/chart1.jasper");
+    }
 }

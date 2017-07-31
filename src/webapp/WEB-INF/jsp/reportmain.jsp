@@ -26,7 +26,7 @@
 <div class="centerDiv">
     <div>
         <ol class="breadcrumb">
-            <li>response</li>
+            <li>获取报表</li>
             <li><a href="/report/japer6?type=excel">excel</a></li>
             <li><a href="/report/japer6?type=pdf">pdf</a></li>
             <li><a href="/report/japer6?type=html">html</a></li>
