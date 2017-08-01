@@ -38,4 +38,15 @@ public class JasperReportWithBean extends JasperReportBase {
             }
         }
     }
+
+    @Override
+    protected JasperPrint getJasperPrint(File reportFile) {
+        JasperPrint jasperPrint = null;
+        try {
+            jasperPrint = JasperFillManager.fillReport(reportFile.getPath(), parameterMap, dataSource);
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        return jasperPrint;
+    }
 }

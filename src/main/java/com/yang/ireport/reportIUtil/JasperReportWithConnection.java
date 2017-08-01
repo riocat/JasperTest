@@ -53,4 +53,23 @@ public class JasperReportWithConnection extends JasperReportBase {
             }
         }
     }
+
+    @Override
+    protected JasperPrint getJasperPrint(File reportFile) {
+        JasperPrint jasperPrint = null;
+        try {
+            jasperPrint = JasperFillManager.fillReport(reportFile.getPath(), parameterMap, connection);
+        } catch (JRException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return jasperPrint;
+    }
 }

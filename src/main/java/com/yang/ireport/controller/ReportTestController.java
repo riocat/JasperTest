@@ -63,7 +63,7 @@ public class ReportTestController {
     public void getReport2(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
         JasperReportBase jrb = new JasperReportWithConnection();
         jrb.setConnection(dataSource.getConnection());
-        jrb.createResponse(type, request, response, "/WEB-INF/report/report1.jasper", "report1");
+        jrb.createResponse(type, request, response, "/WEB-INF/report/report1.jasper", "report1", false);
     }
 
     @RequestMapping("japer4")
@@ -77,7 +77,7 @@ public class ReportTestController {
         List<Repertory> list = repertoryService.getList();
         JRAbstractBeanDataSource dataSource = new JRBeanCollectionDataSource(list);
         jrb.setDataSource(dataSource);
-        jrb.createResponse(type, request, response, "/WEB-INF/report/Repertory.jasper", "Repertory");
+        jrb.createResponse(type, request, response, "/WEB-INF/report/Repertory.jasper", "Repertory", false);
     }
 
     @RequestMapping("japer6")
@@ -87,7 +87,7 @@ public class ReportTestController {
         HashMap<String, Object> pMap = new HashMap<String, Object>();
         pMap.put("orderCode", "PO1707190012");
         jrb.setParameterMap(pMap);
-        jrb.createResponse(type, request, response, "/WEB-INF/report/goodsInfo.jasper", "goodsInfo");
+        jrb.createResponse(type, request, response, "/WEB-INF/report/goodsInfo.jasper", "goodsInfo", false);
     }
 
     @RequestMapping("japer7")
@@ -99,6 +99,21 @@ public class ReportTestController {
     public void getReport8(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
         JasperReportBase jrb = new JasperReportWithConnection();
         jrb.setConnection(dataSource.getConnection());
-        jrb.createResponse(type, request, response, "/WEB-INF/report/chart1.jasper", "chart1");
+        jrb.createResponse(type, request, response, "/WEB-INF/report/chart1.jasper", "chart1", true);
     }
+
+    @RequestMapping("japer9")
+    public void getReport9(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        JasperReportBase jrb = new JasperReportWithConnection();
+        jrb.setConnection(dataSource.getConnection());
+        jrb.createResponse(type, request, response, "/WEB-INF/report/chart2.jasper", "chart2", true);
+    }
+
+    @RequestMapping("japer10")
+    public void getReport10(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        JasperReportBase jrb = new JasperReportWithConnection();
+        jrb.setConnection(dataSource.getConnection());
+        jrb.createResponse(type, request, response, "/WEB-INF/report/tableTest.jasper", "tableTest", true);
+    }
+
 }
