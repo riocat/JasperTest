@@ -1,18 +1,18 @@
 package com.yang.ireport.reportIUtil;
 
 import net.sf.jasperreports.engine.JRAbstractExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRAbstractBeanDataSource;
-import net.sf.jasperreports.engine.export.*;
+import net.sf.jasperreports.engine.export.HtmlExporter;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
-import net.sf.jasperreports.export.*;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
+import net.sf.jasperreports.export.SimpleHtmlReportConfiguration;
 import net.sf.jasperreports.j2ee.servlets.ImageServlet;
 import net.sf.jasperreports.web.util.WebHtmlResourceHandler;
-import org.springframework.ui.jasperreports.JasperReportsUtils;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -100,7 +100,10 @@ public abstract class JasperReportBase {
                 SimpleHtmlExporterOutput exporterOutput;
 
                 exporterOutput = new SimpleHtmlExporterOutput(response.getOutputStream());
-                exporterOutput.setImageHandler(new WebHtmlResourceHandler("/report/image/"));
+
+                // 使用的是ImageServlet的请求
+                exporterOutput.setImageHandler(new WebHtmlResourceHandler("/image?image={0}"));
+
                 exporterHTML.setExporterOutput(exporterOutput);
 
                 SimpleHtmlReportConfiguration reportExportConfiguration = new SimpleHtmlReportConfiguration();
@@ -109,7 +112,9 @@ public abstract class JasperReportBase {
                 exporterHTML.setConfiguration(reportExportConfiguration);
                 exporterHTML.exportReport();
 
-/*              JasperPrint jasperPrint = getJasperPrint(reportFile);
+/*
+                // 过时方式
+                JasperPrint jasperPrint = getJasperPrint(reportFile);
                 JRHtmlExporter exporter = new JRHtmlExporter();
                 String imageDIR = request.getServletContext().getRealPath("/report/image/");
                 exporter.setParameter(JRHtmlExporterParameter.IMAGES_DIR_NAME, imageDIR);
