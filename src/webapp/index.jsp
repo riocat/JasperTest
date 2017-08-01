@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="utf-8"%>
+<%@ page language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html>
 <header>
@@ -14,21 +14,22 @@
             padding: 0px;
         }
 
-        .lefttree{
+        .lefttree {
             float: left;
             width: 230px;
             min-height: 60%;
             /*background-color: #ebcccc;*/
         }
-        .main{
+
+        .main {
             margin-left: 230px;
             min-height: 80%;
             /*background-color: lightgoldenrodyellow;*/
         }
     </style>
-    <script type="text/javascript" >
-        function iframeChange(url){
-            $('#reportFrame').attr("src",url);
+    <script type="text/javascript">
+        function iframeChange(url) {
+            $('#reportFrame').attr("src", url);
         }
     </script>
 </header>
@@ -53,7 +54,7 @@
                 <li><a href="/report/japer3?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
         </li>
-        <%--<li>
+        <li>
             <div class="link"><i class="fa fa-code"></i>javaBean<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
                 <li><a href="/report/japer5?type=excel" onclick="iframeChange('')">excel</a></li>
@@ -61,31 +62,22 @@
                 <li><a href="/report/japer5?type=html" onclick="iframeChange('')">html</a></li>
                 <li><a href="/report/japer5?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
-        </li>--%>
+        </li>
         <li>
             <div class="link"><i class="fa fa-code"></i>simple Sub Report<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
                 <li><a href="#" onclick="iframeChange('/report/japer7')">销售订单</a></li>
             </ul>
         </li>
-<%--        <li>
-            <div class="link"><i class="fa fa-code"></i>sub<i class="fa fa-chevron-down"></i></div>
+        <li>
+            <div class="link"><i class="fa fa-code"></i>chart<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="/report/japer6?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer6?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer6?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer6?type=word" onclick="iframeChange('')">word</a></li>
+                <li><a href="/report/japer8?type=excel" onclick="iframeChange('')">excel</a></li>
+                <li><a href="/report/japer8?type=pdf" onclick="iframeChange('')">pdf</a></li>
+                <li><a href="/report/japer8?type=html" onclick="iframeChange('')">html</a></li>
+                <li><a href="/report/japer8?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
-        </li>--%>
-            <li>
-                <div class="link"><i class="fa fa-code"></i>chart<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                    <li><a href="/report/japer8?type=excel" onclick="iframeChange('')">excel</a></li>
-                    <li><a href="/report/japer8?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                    <li><a href="/report/japer8?type=html" onclick="iframeChange('')">html</a></li>
-                    <li><a href="/report/japer8?type=word" onclick="iframeChange('')">word</a></li>
-                </ul>
-            </li>
+        </li>
     </ul>
 </div>
 <div class="main">
