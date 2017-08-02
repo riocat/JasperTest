@@ -114,6 +114,25 @@
                 <li><a href="/report/japer12?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
         </li>
+        <li>
+            <div class="link"><i class="fa fa-code"></i>javaBeanTableTest<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="/report/japer13?type=excel" onclick="iframeChange('')">excel</a></li>
+                <li><a href="/report/japer13?type=pdf" onclick="iframeChange('')">pdf</a></li>
+                <li><a href="/report/japer13?type=html" onclick="iframeChange('')">html</a></li>
+                <li><a href="/report/japer13?type=word" onclick="iframeChange('')">word</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="link"><i class="fa fa-code"></i>listTest<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="/report/japer14?type=excel" onclick="iframeChange('')">excel</a></li>
+                <li><a href="/report/japer14?type=pdf" onclick="iframeChange('')">pdf</a></li>
+                <li><a href="/report/japer14?type=html" onclick="iframeChange('')">html</a></li>
+                <li><a href="/report/japer14?type=word" onclick="iframeChange('')">word</a></li>
+            </ul>
+        </li>
     </ul>
 </div>
 <div class="main">

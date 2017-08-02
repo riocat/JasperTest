@@ -1,10 +1,12 @@
 package com.yang.ireport.controller;
 
 import com.yang.ireport.model.Repertory;
+import com.yang.ireport.model.SalesSlip;
 import com.yang.ireport.reportIUtil.JasperReportBase;
 import com.yang.ireport.reportIUtil.JasperReportWithBean;
 import com.yang.ireport.reportIUtil.JasperReportWithConnection;
 import com.yang.ireport.service.RepertoryService;
+import com.yang.ireport.service.SalesSlipService;
 import net.sf.jasperreports.engine.data.JRAbstractBeanDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,9 @@ public class ReportTestController {
 
     @Autowired
     private RepertoryService repertoryService;
+
+    @Autowired
+    private SalesSlipService salesSlipService;
 
     @RequestMapping("japer")
     public String getReport(Model model, String type) {
@@ -128,5 +133,23 @@ public class ReportTestController {
         JasperReportBase jrb = new JasperReportWithConnection();
         jrb.setConnection(dataSource.getConnection());
         jrb.createResponse(type, request, response, "/WEB-INF/report/crosstabTest.jasper", "crosstabTest", true);
+    }
+
+    @RequestMapping("japer13")
+    public void getReport13(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        JasperReportBase jrb = new JasperReportWithBean();
+        List<SalesSlip> list = salesSlipService.getList();
+        JRAbstractBeanDataSource dataSource = new JRBeanCollectionDataSource(list);
+        jrb.setDataSource(dataSource);
+        jrb.createResponse(type, request, response, "/WEB-INF/report/salesSlipUseBean.jasper", "salesSlipUseBean", true);
+    }
+
+    @RequestMapping("japer14")
+    public void getReport14(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        JasperReportBase jrb = new JasperReportWithBean();
+        List<SalesSlip> list = salesSlipService.getList();
+        JRAbstractBeanDataSource dataSource = new JRBeanCollectionDataSource(list);
+        jrb.setDataSource(dataSource);
+        jrb.createResponse(type, request, response, "/WEB-INF/report/listTest.jasper", "listTest", true);
     }
 }

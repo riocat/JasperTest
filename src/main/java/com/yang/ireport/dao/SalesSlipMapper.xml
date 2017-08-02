@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yang.ireport.dao.SalesSlipMapper">
+
+	<select id="getList" resultMap="SalesSlipDetail">
+		SELECT
+			ss.objuid ss_objuid,
+			ss.purchase_date ss_purchase_date,
+			ss.purchase_order_num ss_purchase_order_num,
+			ss.switch_to_order_num ss_switch_to_order_num,
+			cmi.customer_name ss_customer,
+			ss.tax_categories ss_tax_categories,
+			ss.historical_unit_price ss_historical_unit_price,
+			ss.total_amount ss_total_amount,
+			ss.total_non_tax_base_currency ss_total_non_tax_base_currency,
+			ss.transaction_mode ss_transaction_mode,
+			iss.objuid iss_objuid,
+			iss.my_sales_slip_id iss_my_sales_slip_id,
+			iss.goods_code iss_goods_code,
+			iss.goods_name iss_goods_name,
+			mr.repertory_name iss_repertory_code,
+			iss.batch_number_id iss_batch_number_id,
+			iss.num iss_num,
+			iss.unit_price iss_unit_price,
+			iss.amount iss_amount,
+			iss.tax_rate iss_tax_rate,
+			iss.no_tax_standard_currency iss_no_tax_standard_currency,
+			iss.tax iss_tax
+		FROM
+			my_sales_slip ss
+		LEFT JOIN my_goods_details_info_ss iss ON ss.objuid = iss.my_sales_slip_id
+		LEFT JOIN my_customer_manufacturer_info cmi ON ss.customer = cmi.objuid
+		LEFT JOIN my_repertory mr ON iss.repertory_code = mr.objuid
+	</select>
+
+	<resultMap id="SalesSlipDetail" type="com.yang.ireport.model.SalesSlip">
+		<id column="ss_objuid" javaType="String" property="objuid"></id>
+		<result property="purchaseDate" column="ss_purchase_date"></result>
+		<result property="purchaseOrderNum" column="ss_purchase_order_num"></result>
+		<result property="switchToOrderNum" column="ss_switch_to_order_num"></result>
+		<result property="customer" column="ss_customer"></result>
+		<result property="taxCategories" column="ss_tax_categories"></result>
+		<result property="historicalUnitPrice" column="ss_historical_unit_price"></result>
+		<result property="totalAmount" column="ss_total_amount"></result>
+		<result property="totalNonTaxBaseCurrency" column="ss_total_non_tax_base_currency"></result>
+		<result property="transactionMode" column="ss_transaction_mode"></result>
+		<collection property="goodsInfos" ofType="com.yang.ireport.model.SalesSlipGoodsInfo">
+			<id column="iss_objuid" javaType="String" property="objuid"></id>
+			<result property="salesSslipId" column="iss_my_sales_slip_id"></result>
+			<result property="goodsCode" column="iss_goods_code"></result>
+			<result property="goodsName" column="iss_goods_name"></result>
+			<result property="repertoryCode" column="iss_repertory_code"></result>
+			<result property="batchNumberId" column="iss_batch_number_id"></result>
+			<result property="num" column="iss_num"></result>
+			<result property="unitPrice" column="iss_unit_price"></result>
+			<result property="amount" column="iss_amount"></result>
+			<result property="taxRate" column="iss_tax_rate"></result>
+			<result property="noTaxStandardCurrency" column="iss_no_tax_standard_currency"></result>
+			<result property="tax" column="iss_tax"></result>
+		</collection>
+	</resultMap>
+
+</mapper>
