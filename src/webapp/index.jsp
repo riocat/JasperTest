@@ -96,6 +96,15 @@
                 <li><a href="/report/japer10?type=word" onclick="iframeChange('')">word</a></li>
             </ul>
         </li>
+        <li>
+            <div class="link"><i class="fa fa-code"></i>salesSlipTable<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="/report/japer11?type=excel" onclick="iframeChange('')">excel</a></li>
+                <li><a href="/report/japer11?type=pdf" onclick="iframeChange('')">pdf</a></li>
+                <li><a href="/report/japer11?type=html" onclick="iframeChange('')">html</a></li>
+                <li><a href="/report/japer11?type=word" onclick="iframeChange('')">word</a></li>
+            </ul>
+        </li>
     </ul>
 </div>
 <div class="main">

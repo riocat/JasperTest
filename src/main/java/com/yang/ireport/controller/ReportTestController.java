@@ -116,4 +116,11 @@ public class ReportTestController {
         jrb.createResponse(type, request, response, "/WEB-INF/report/tableTest.jasper", "tableTest", true);
     }
 
+    @RequestMapping("japer11")
+    public void getReport11(String type, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        JasperReportBase jrb = new JasperReportWithConnection();
+        jrb.setConnection(dataSource.getConnection());
+        jrb.createResponse(type, request, response, "/WEB-INF/report/salesSlip.jasper", "salesSlip", true);
+    }
+
 }
