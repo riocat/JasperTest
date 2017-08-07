@@ -1,0 +1,34 @@
+.wapperDiv{
+    margin-bottom: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+.leftMenuDiv{
+    background-color: #cccccc;
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.contentDiv{
+    float: left;
+    width: 80%;
+    height: 100%;
+}
+
+
+footer{
+    height: 35px;
+}
+
+.foot{
+    position: fixed;
+    bottom: 0;
+    background-color: honeydew;
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: thin;
+    width: 100%;
+    height: 30px;
+}

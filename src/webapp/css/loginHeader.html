@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<link href="loginHeader.css" rel="stylesheet">
+<script>
+$(function(){
+    $('#imgLableSpan').hover(function(){
+        $('#userInfoMenu').css('display','block');
+    });
+    $('#userInfoMenu').hover(function(){
+        $('#userInfoMenu').css('display','block');
+    },function(){
+        $('#userInfoMenu').css('display','none');
+    });
+});
+</script>
+</head>
+<body>
+<header>
+<div id="headerDiv" class=headerDiv">
+    <div id="headTableCellDiv">
+        <span id="logoSpan" class="logoSpan">
+            Logo
+        </span>
+        <span class="userInfoSpan" id="userInfoSpan">
+            <span id="imgLableSpan">
+                <img src="../img/130641932834908062.jpg" id="headImg">
+                <label id="nameLabel">name</label>
+            </span>
+            <span class="downItem">
+                <ul id="userInfoMenu">
+                    <li ng-click="changeUserInfo()">个人信息</li>
+                    <li  ng-click="changeHeadImg()">修改头像</li>
+                    <li  ng-click="loginOut()">安全退出</li>
+                </ul>
+            </span>
+        </span>
+    </div>
+</div>
+</header>
+</body>
+</html>
+

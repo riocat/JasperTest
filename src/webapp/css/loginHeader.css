@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    height: 120px;
+    width: 100%;
+}
+
+#headerDiv{
+    height: 100%;
+    width: 100%;
+    background-color: #1f1814;
+    display: table;
+}
+
+#headTableCellDiv{
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.logoSpan{
+    color: white;
+    font-family: Consolas;
+    font-size: 50px;
+    margin-left: 5%;
+}
+
+.userInfoSpan{;
+    position: absolute;
+    left: 80%;
+}
+
+#imgLableSpan{
+    height: 75px;
+    display: inline-block;
+}
+
+#headImg{
+    height: 60px;
+    width: auto;
+    border-color: #c9e2b3;
+    border-bottom-style: solid;
+    border-radius: 5px;
+}
+
+#nameLabel{
+    color: white;
+    font-family: "Microsoft YaHei";
+    vertical-align: bottom;
+}
+
+#userInfoMenu{
+    display: none;
+}
+
+#userInfoMenu:hover{
+    display: block;
+}
+
+#userInfoMenu{
+    margin-top: -6px;
+}
+
+#userInfoMenu li{
+    list-style: none;
+    width: 180px;
+    height: 30px;
+    line-height:30px;
+    background-color: white;
+    border-color: #8c8c8c;
+    border-style:solid;
+    border-top-style: none;
+    border-width: thin;
+    text-align: center;
+    font-size: small;
+    color: #1f1814;
+    font-family: "Microsoft YaHei";
+}
+
+#userInfoMenu li:hover{
+    background-color: #d4d4d4;
+    color: #262626;
+    cursor: pointer;
+}

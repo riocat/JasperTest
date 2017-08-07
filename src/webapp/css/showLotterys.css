@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background:#1f1814 url("../img/body_bg.jpg") no-repeat top;
+}
+
+.content {
+	width: 1300px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+.left {
+	/* 	position: absolute; */
+	/* 	top: 80px; */
+	/* 	width: 15%; */
+	/* 	min-width: 250px;  */
+	background-color: white;
+	width: 300px;
+	border-color: black;
+	border-style: solid;
+	border-width: thin;
+	border-color: black;
+	float: left;
+}
+
+.left ul li{
+	list-style: none;
+}
+
+.bottom {
+	clear: both;
+}
+
+.right {
+	/* 	position: absolute; */
+	/* 	top: 80px; */
+	/* 	left: 300px; */
+	/* 	left: 30%; */
+	/* 	width: 60%; */
+	min-width: 990px;
+	float: right;
+}
+
+#lotteryTable {
+	background-color: white;
+	border-color: black;
+	border-style: solid;
+	border-width: thin;
+}
+
+caption {
+	text-align: center;
+	background-color: white;
+}
