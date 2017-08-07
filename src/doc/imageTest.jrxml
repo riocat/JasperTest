@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="imageTest" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f4c6b077-25dc-4725-8d3b-03c37caf09e9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="71"/>
+	<parameter name="image1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from my_repertory]]>
+	</queryString>
+	<field name="objuid" class="java.lang.String">
+		<fieldDescription><![CDATA[objuid]]></fieldDescription>
+	</field>
+	<field name="repertory_code" class="java.lang.String">
+		<fieldDescription><![CDATA[仓库代号]]></fieldDescription>
+	</field>
+	<field name="repertory_name" class="java.lang.String">
+		<fieldDescription><![CDATA[仓库名称]]></fieldDescription>
+	</field>
+	<field name="special_code" class="java.lang.String">
+		<fieldDescription><![CDATA[助记码]]></fieldDescription>
+	</field>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="344" y="34" width="100" height="20" uuid="5c820b20-67bd-44b4-bbac-f1742bd5e9dc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[图片测试]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50">
+			<staticText>
+				<reportElement x="344" y="14" width="100" height="20" uuid="56a428aa-c322-49fd-a06f-880be2ac80d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[仓库信息]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="300" splitType="Stretch">
+			<staticText>
+				<reportElement x="190" y="0" width="100" height="20" uuid="6f5ae824-6204-4f10-896f-dea72ba73ab4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[仓库代号]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="0" width="100" height="20" uuid="8ee5a379-89c0-4650-9399-38b145dc5f3e"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{repertory_code}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="391" y="0" width="100" height="20" uuid="08c7e292-46a1-4d60-a420-31c185ac593f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[仓库名称]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="491" y="0" width="100" height="20" uuid="9ab52295-f422-4b64-81a1-050af4a9a0c1"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{repertory_name}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="241" y="32" width="435" height="246" uuid="3746536c-bb71-4b17-ad0e-bad6cb8ecd2b"/>
+				<imageExpression><![CDATA[$P{image1}+"fc.jpg"]]></imageExpression>
+				<anchorNameExpression><![CDATA[$P{image1}+"fc.jpg"]]></anchorNameExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

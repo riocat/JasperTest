@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="goodsInfo_subreport1" language="groovy" pageWidth="600" pageHeight="555" orientation="Landscape" columnWidth="600" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d78885a0-a549-40a9-8bca-a81dd2cdb132">
+	<property name="ireport.zoom" value="2.1435888100000042"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="orderCodeSub" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	*
+FROM
+	my_sales_order so
+LEFT JOIN my_goods_details_info_so gso ON so.objuid = gso.my_sales_order_id
+LEFT JOIN my_customer_manufacturer_info mmi ON so.customer = mmi.objuid
+LEFT JOIN my_repertory mr ON gso.repertory_code = mr.objuid
+WHERE so.order_code = $P{orderCodeSub}]]>
+	</queryString>
+	<field name="objuid" class="java.lang.String">
+		<fieldDescription><![CDATA[objuid]]></fieldDescription>
+	</field>
+	<field name="date_of_sale" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[销售日期]]></fieldDescription>
+	</field>
+	<field name="order_code" class="java.lang.String">
+		<fieldDescription><![CDATA[销售单号]]></fieldDescription>
+	</field>
+	<field name="customer" class="java.lang.String">
+		<fieldDescription><![CDATA[客户]]></fieldDescription>
+	</field>
+	<field name="tax_categories" class="java.lang.Integer">
+		<fieldDescription><![CDATA[扣税类别]]></fieldDescription>
+	</field>
+	<field name="historical_unit_price" class="java.lang.String">
+		<fieldDescription><![CDATA[历史单价]]></fieldDescription>
+	</field>
+	<field name="total_amount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[金额合计]]></fieldDescription>
+	</field>
+	<field name="total_non_tax_base_currency" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[未税本位币合计]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[折扣]]></fieldDescription>
+	</field>
+	<field name="transaction_mode" class="java.lang.String">
+		<fieldDescription><![CDATA[交易方式]]></fieldDescription>
+	</field>
+	<field name="wf_status" class="java.lang.String">
+		<fieldDescription><![CDATA[审核状态]]></fieldDescription>
+	</field>
+	<field name="my_sales_order_id" class="java.lang.String">
+		<fieldDescription><![CDATA[销售订单id]]></fieldDescription>
+	</field>
+	<field name="goods_code" class="java.lang.String">
+		<fieldDescription><![CDATA[货品代号]]></fieldDescription>
+	</field>
+	<field name="goods_name" class="java.lang.String">
+		<fieldDescription><![CDATA[货品名称]]></fieldDescription>
+	</field>
+	<field name="repertory_code" class="java.lang.String">
+		<fieldDescription><![CDATA[仓库代号]]></fieldDescription>
+	</field>
+	<field name="batch_number_id" class="java.lang.String">
+		<fieldDescription><![CDATA[批号]]></fieldDescription>
+	</field>
+	<field name="num" class="java.lang.Integer">
+		<fieldDescription><![CDATA[数量]]></fieldDescription>
+	</field>
+	<field name="unit_price" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[单价]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[金额]]></fieldDescription>
+	</field>
+	<field name="tax_rate" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[税率]]></fieldDescription>
+	</field>
+	<field name="no_tax_standard_currency" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[未税本位币]]></fieldDescription>
+	</field>
+	<field name="tax" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[税额]]></fieldDescription>
+	</field>
+	<field name="customer_code" class="java.lang.String">
+		<fieldDescription><![CDATA[客户代号]]></fieldDescription>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<fieldDescription><![CDATA[客户名称]]></fieldDescription>
+	</field>
+	<field name="customer_type" class="java.lang.Integer">
+		<fieldDescription><![CDATA[客户类型]]></fieldDescription>
+	</field>
+	<field name="special_code" class="java.lang.String">
+		<fieldDescription><![CDATA[助记码]]></fieldDescription>
+	</field>
+	<field name="repertory_name" class="java.lang.String">
+		<fieldDescription><![CDATA[仓库名称]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20">
+			<rectangle>
+				<reportElement x="0" y="0" width="120" height="20" backcolor="#CCFFFF" uuid="ed69139d-f719-4dce-bbd5-818a58672175"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="120" y="0" width="120" height="20" backcolor="#CCFFFF" uuid="9eed1fd7-95a0-43cf-8ee3-2ab52db17e82"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="240" y="0" width="120" height="20" backcolor="#CCFFFF" uuid="6cdf8d28-22d7-421f-8163-b985bdbbda4d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="360" y="0" width="120" height="20" backcolor="#CCFFFF" uuid="d9754510-a44f-4185-85a9-47850ff7efcc"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="480" y="0" width="120" height="20" backcolor="#CCFFFF" uuid="63dcda62-42d6-4d78-86f0-b6767c051049"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="120" height="20" uuid="e7df4a5d-598f-4cdd-bdc9-25e935dc5bb1"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[货品名称]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="0" width="120" height="20" uuid="508011b8-97e8-411c-9e21-2466a5c30920"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[数量]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="120" height="20" uuid="fe44c05b-2f29-4d35-8233-ddce8307d0c5"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[单价]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="0" width="120" height="20" uuid="796ce95d-9d59-4eb7-9cd9-6abd6c055a8e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[金额]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="120" height="20" uuid="608ee6ab-0137-4926-850f-d5e859052e08"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[仓库名称]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="120" height="20" uuid="e6eef45d-581d-4531-af3d-f44bceba742d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="480" y="0" width="120" height="20" uuid="b0a55c5c-c597-4ece-9186-b57dd29c5b4a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="240" y="0" width="120" height="20" uuid="55186434-e86c-45da-8031-27e06999305e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="360" y="0" width="120" height="20" uuid="46bf3545-2ba0-4508-919c-af1fd6d0ad0f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="120" y="0" width="120" height="20" uuid="9626ee48-24a3-4ae5-9447-367af4eaec13"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="120" height="20" uuid="0dc3981f-99a1-4a35-ad40-2e42f14db057"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{goods_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="0" width="120" height="20" uuid="41a80e10-48c3-441f-a890-8905e13562a1"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="120" height="20" uuid="b1e65bb8-8704-4e29-9dc1-11b4fc562751"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unit_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="120" height="20" uuid="e87e2e18-1ed8-46ca-a1d3-cd1de8ad13e6"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="120" height="20" uuid="bd9e56bc-aafd-43e6-aa06-8c22e7999f96"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{repertory_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

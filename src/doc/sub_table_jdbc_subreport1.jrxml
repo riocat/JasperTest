@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_table_jdbc_subreport1" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9a0f4ddd-2bda-41b5-817e-ff02711305fb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="dfacc7ac-5e8e-4836-a44b-178392b20e27">
+		<parameter name="param" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT
+	*
+FROM
+	my_sales_order so
+LEFT JOIN my_goods_details_info_so gso ON so.objuid = gso.my_sales_order_id
+LEFT JOIN my_customer_manufacturer_info mmi ON so.customer = mmi.objuid
+LEFT JOIN my_repertory mr ON gso.repertory_code = mr.objuid
+WHERE so.order_code = $P{param}]]>
+		</queryString>
+		<field name="objuid" class="java.lang.String">
+			<fieldDescription><![CDATA[objuid]]></fieldDescription>
+		</field>
+		<field name="date_of_sale" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[销售日期]]></fieldDescription>
+		</field>
+		<field name="order_code" class="java.lang.String">
+			<fieldDescription><![CDATA[销售单号]]></fieldDescription>
+		</field>
+		<field name="customer" class="java.lang.String">
+			<fieldDescription><![CDATA[客户]]></fieldDescription>
+		</field>
+		<field name="tax_categories" class="java.lang.Integer">
+			<fieldDescription><![CDATA[扣税类别]]></fieldDescription>
+		</field>
+		<field name="historical_unit_price" class="java.lang.String">
+			<fieldDescription><![CDATA[历史单价]]></fieldDescription>
+		</field>
+		<field name="total_amount" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[金额合计]]></fieldDescription>
+		</field>
+		<field name="total_non_tax_base_currency" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[未税本位币合计]]></fieldDescription>
+		</field>
+		<field name="discount" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[折扣]]></fieldDescription>
+		</field>
+		<field name="transaction_mode" class="java.lang.String">
+			<fieldDescription><![CDATA[交易方式]]></fieldDescription>
+		</field>
+		<field name="wf_status" class="java.lang.String">
+			<fieldDescription><![CDATA[审核状态]]></fieldDescription>
+		</field>
+		<field name="my_sales_order_id" class="java.lang.String">
+			<fieldDescription><![CDATA[销售订单id]]></fieldDescription>
+		</field>
+		<field name="goods_code" class="java.lang.String">
+			<fieldDescription><![CDATA[货品代号]]></fieldDescription>
+		</field>
+		<field name="goods_name" class="java.lang.String">
+			<fieldDescription><![CDATA[货品名称]]></fieldDescription>
+		</field>
+		<field name="repertory_code" class="java.lang.String">
+			<fieldDescription><![CDATA[仓库代号]]></fieldDescription>
+		</field>
+		<field name="batch_number_id" class="java.lang.String">
+			<fieldDescription><![CDATA[批号]]></fieldDescription>
+		</field>
+		<field name="num" class="java.lang.Integer">
+			<fieldDescription><![CDATA[数量]]></fieldDescription>
+		</field>
+		<field name="unit_price" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[单价]]></fieldDescription>
+		</field>
+		<field name="amount" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[金额]]></fieldDescription>
+		</field>
+		<field name="tax_rate" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[税率]]></fieldDescription>
+		</field>
+		<field name="no_tax_standard_currency" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[未税本位币]]></fieldDescription>
+		</field>
+		<field name="tax" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[税额]]></fieldDescription>
+		</field>
+		<field name="customer_code" class="java.lang.String">
+			<fieldDescription><![CDATA[客户代号]]></fieldDescription>
+		</field>
+		<field name="customer_name" class="java.lang.String">
+			<fieldDescription><![CDATA[客户名称]]></fieldDescription>
+		</field>
+		<field name="customer_type" class="java.lang.Integer">
+			<fieldDescription><![CDATA[客户类型]]></fieldDescription>
+		</field>
+		<field name="special_code" class="java.lang.String">
+			<fieldDescription><![CDATA[助记码]]></fieldDescription>
+		</field>
+		<field name="repertory_name" class="java.lang.String">
+			<fieldDescription><![CDATA[仓库名称]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="orderCodeSub" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select 1]]>
+	</queryString>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="217" y="26" width="360" height="80" uuid="7dab7d19-80ae-4380-827a-5e137127b346"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset 1" uuid="169cdd19-9f00-4c89-8336-a0c3433b514d">
+						<datasetParameter name="param">
+							<datasetParameterExpression><![CDATA[$P{orderCodeSub}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="c36004fd-1a8d-490a-901d-6cfd8218ee0c">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="abc0fd19-a1cd-40f6-8528-68c6f5470d58"/>
+								<textFieldExpression><![CDATA[$F{goods_name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="58b86bf4-4f1c-4c4d-9c27-811e7fb7bbcc">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="9497253a-0243-45d2-96e3-c163fc59bf3f"/>
+								<textFieldExpression><![CDATA[$F{unit_price}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="59887dcb-24ba-421c-b646-0ed2c87cd028">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="e00ee388-ce9c-4587-b412-223f317bd02c"/>
+								<textFieldExpression><![CDATA[$F{num}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="72f109aa-58ce-49bc-a2d4-7cd97b9fe5ca">
+						<jr:tableHeader style="table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="8d0b2c98-bf39-43e5-a188-be7174282936"/>
+								<textFieldExpression><![CDATA[$F{repertory_name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

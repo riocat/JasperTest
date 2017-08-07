@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/style.css"/>
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <style>
         * {
@@ -36,101 +35,60 @@
 <body>
 <div class="lefttree">
     <ul id="accordion" class="accordion">
-        <%--<li>
-            <div class="link"><i class="fa fa-paint-brush"></i>Spring MVC<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-                <li><a href="/report/japer?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer2?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer2?type=html" onclick="iframeChange('')">HTML</a></li>
-            </ul>
-        </li>--%>
         <li>
-            <div class="link"><i class="fa fa-code"></i>response<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>子报表测试<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="/report/japer3?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer3?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer3?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer3?type=word" onclick="iframeChange('')">word</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer?type=1')">销售订单</a></li>
             </ul>
         </li>
         <li>
-            <div class="link"><i class="fa fa-code"></i>javaBean<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>JDBC数据源table控件<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="/report/japer5?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer5?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer5?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer5?type=word" onclick="iframeChange('')">word</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer?type=2')">销货单</a></li>
             </ul>
         </li>
         <li>
-            <div class="link"><i class="fa fa-code"></i>simple Sub Report<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>javabean数据源table控件<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="#" onclick="iframeChange('/report/japer7')">销售订单</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer?type=3')">销货单</a></li>
             </ul>
         </li>
         <li>
-            <div class="link"><i class="fa fa-code"></i>chart<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>交叉报表<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="/report/japer8?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer8?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer8?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer8?type=word" onclick="iframeChange('')">word</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer?type=4')">货品分仓数量</a></li>
             </ul>
         </li>
         <li>
-            <div class="link"><i class="fa fa-code"></i>chart2<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>javabean数据源图表饼图<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="/report/japer9?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer9?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer9?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer9?type=word" onclick="iframeChange('')">word</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer?type=5')">货物存储量</a></li>
             </ul>
         </li>
         <li>
-            <div class="link"><i class="fa fa-code"></i>tableTest<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>JDBC数据源图表柱状图<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="/report/japer10?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer10?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer10?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer10?type=word" onclick="iframeChange('')">word</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer?type=6')">货物存储量</a></li>
             </ul>
         </li>
         <li>
-            <div class="link"><i class="fa fa-code"></i>salesSlipTable<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>group测试<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="/report/japer11?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer11?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer11?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer11?type=word" onclick="iframeChange('')">word</a></li>
-            </ul>
-        </li>
-        <li>
-            <div class="link"><i class="fa fa-code"></i>crosstabTest<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-                <li><a href="/report/japer12?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer12?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer12?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer12?type=word" onclick="iframeChange('')">word</a></li>
-            </ul>
-        </li>
-        <li>
-            <div class="link"><i class="fa fa-code"></i>javaBeanTableTest<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-                <li><a href="/report/japer13?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer13?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer13?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer13?type=word" onclick="iframeChange('')">word</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer?type=7')">客户类型</a></li>
             </ul>
         </li>
 
         <li>
-            <div class="link"><i class="fa fa-code"></i>listTest<i class="fa fa-chevron-down"></i></div>
+            <div class="link"><i class="fa fa-code"></i>image测试<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="/report/japer14?type=excel" onclick="iframeChange('')">excel</a></li>
-                <li><a href="/report/japer14?type=pdf" onclick="iframeChange('')">pdf</a></li>
-                <li><a href="/report/japer14?type=html" onclick="iframeChange('')">html</a></li>
-                <li><a href="/report/japer14?type=word" onclick="iframeChange('')">word</a></li>
+                <li><a href="#" onclick="iframeChange('/report/japer?type=8')">image</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="link"><i class="fa fa-code"></i>subTable测试<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="#" onclick="iframeChange('/report/japer?type=9')">sub_table_jdbc</a></li>
             </ul>
         </li>
     </ul>

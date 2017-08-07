@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="groupTest" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d4635fb-d943-4415-8a73-a51a9cf6a031">
+	<property name="ireport.zoom" value="1.0000000000000004"/>
+	<property name="ireport.x" value="24"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+	customer_code,
+	customer_name,
+	CASE customer_type
+WHEN 1 THEN
+	'客户'
+WHEN 2 THEN
+	'厂商'
+WHEN 3 THEN
+	'客户/厂商'
+END customer_type
+FROM
+	my_customer_manufacturer_info
+ORDER BY customer_type]]>
+	</queryString>
+	<field name="customer_code" class="java.lang.String">
+		<fieldDescription><![CDATA[客户代号]]></fieldDescription>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<fieldDescription><![CDATA[客户名称]]></fieldDescription>
+	</field>
+	<field name="customer_type" class="java.lang.String">
+		<fieldDescription><![CDATA[客户类型]]></fieldDescription>
+	</field>
+	<group name="客户类型">
+		<groupExpression><![CDATA[$F{customer_type}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="361" y="17" width="100" height="20" uuid="4d295268-601e-4a57-b1dc-18e0052c9a52"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{customer_type}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<line>
+					<reportElement x="217" y="27" width="400" height="1" uuid="b5302e59-6178-43f3-80f7-beea7f943ea8"/>
+					<graphicElement>
+						<pen lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="361" y="15" width="100" height="20" uuid="f44eb04f-a691-45a5-851c-92439d32b1c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[group 测试]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="217" y="32" width="100" height="20" uuid="7320a380-ac94-4bc7-a891-a996c366ad4a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[客户代号]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="317" y="32" width="100" height="20" uuid="2a48f12b-40c4-46b3-b7ad-b3f91730cede"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_code}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="417" y="32" width="100" height="20" uuid="af831033-7d43-4177-96d5-d037e51176cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[客户名称]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="517" y="32" width="100" height="20" uuid="66af1fd0-a69d-4cd8-abb1-1a4639ef1b8a"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

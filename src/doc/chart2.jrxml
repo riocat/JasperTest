@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="chart2" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe561ea7-8540-4376-9f91-45ba69545170">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="71"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+	mr.repertory_name 仓库名称,
+	so.goods_name 货品名称,
+	SUM(so.num) 货品数量
+FROM
+	my_repertory mr
+LEFT JOIN my_goods_details_info_so so ON mr.objuid = so.repertory_code
+GROUP BY
+	mr.objuid,
+	so.goods_code
+ORDER BY mr.repertory_code]]>
+	</queryString>
+	<field name="仓库名称" class="java.lang.String"/>
+	<field name="货品名称" class="java.lang.String"/>
+	<field name="货品数量" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="359" y="22" width="100" height="20" uuid="0af6eba3-42be-4f57-8503-7ca4b98c054d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[货物数量柱状图]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="153" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="59" y="27" width="300" height="100" uuid="2c383ed2-d495-417b-a463-4b14ef7fe275"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[""]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{货品名称}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{货品数量}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<barChart>
+				<chart>
+					<reportElement x="459" y="27" width="300" height="100" uuid="6724518a-073d-4572-ba5b-aa70e6300aad"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{仓库名称}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{货品名称}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{货品数量}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<staticText>
+				<reportElement x="147" y="0" width="100" height="20" uuid="234780f8-bbe6-429e-93d4-016c9d96cd64"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[不使用分类]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="1" width="100" height="20" uuid="8916da62-f7b0-4ebc-b041-bc60db757dc5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[使用分类]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

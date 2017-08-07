@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="goodsInfo" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4444a812-5b02-4840-9016-efc8e5a95f81">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="orderCode" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	*
+FROM
+	my_sales_order so
+LEFT JOIN my_goods_details_info_so gso ON so.objuid = gso.my_sales_order_id
+LEFT JOIN my_customer_manufacturer_info mmi ON so.customer = mmi.objuid
+WHERE order_code = $P{orderCode}
+group by so.objuid]]>
+	</queryString>
+	<field name="objuid" class="java.lang.String">
+		<fieldDescription><![CDATA[objuid]]></fieldDescription>
+	</field>
+	<field name="date_of_sale" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[销售日期]]></fieldDescription>
+	</field>
+	<field name="order_code" class="java.lang.String">
+		<fieldDescription><![CDATA[销售单号]]></fieldDescription>
+	</field>
+	<field name="customer" class="java.lang.String">
+		<fieldDescription><![CDATA[客户]]></fieldDescription>
+	</field>
+	<field name="tax_categories" class="java.lang.Integer">
+		<fieldDescription><![CDATA[扣税类别]]></fieldDescription>
+	</field>
+	<field name="historical_unit_price" class="java.lang.String">
+		<fieldDescription><![CDATA[历史单价]]></fieldDescription>
+	</field>
+	<field name="total_amount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[金额合计]]></fieldDescription>
+	</field>
+	<field name="total_non_tax_base_currency" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[未税本位币合计]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[折扣]]></fieldDescription>
+	</field>
+	<field name="transaction_mode" class="java.lang.String">
+		<fieldDescription><![CDATA[交易方式]]></fieldDescription>
+	</field>
+	<field name="wf_status" class="java.lang.String">
+		<fieldDescription><![CDATA[审核状态]]></fieldDescription>
+	</field>
+	<field name="my_sales_order_id" class="java.lang.String">
+		<fieldDescription><![CDATA[销售订单id]]></fieldDescription>
+	</field>
+	<field name="goods_code" class="java.lang.String">
+		<fieldDescription><![CDATA[货品代号]]></fieldDescription>
+	</field>
+	<field name="goods_name" class="java.lang.String">
+		<fieldDescription><![CDATA[货品名称]]></fieldDescription>
+	</field>
+	<field name="repertory_code" class="java.lang.String">
+		<fieldDescription><![CDATA[仓库代号]]></fieldDescription>
+	</field>
+	<field name="batch_number_id" class="java.lang.String">
+		<fieldDescription><![CDATA[批号]]></fieldDescription>
+	</field>
+	<field name="num" class="java.lang.Integer">
+		<fieldDescription><![CDATA[数量]]></fieldDescription>
+	</field>
+	<field name="unit_price" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[单价]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[金额]]></fieldDescription>
+	</field>
+	<field name="tax_rate" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[税率]]></fieldDescription>
+	</field>
+	<field name="no_tax_standard_currency" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[未税本位币]]></fieldDescription>
+	</field>
+	<field name="tax" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[税额]]></fieldDescription>
+	</field>
+	<field name="customer_code" class="java.lang.String">
+		<fieldDescription><![CDATA[客户代号]]></fieldDescription>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<fieldDescription><![CDATA[客户名称]]></fieldDescription>
+	</field>
+	<field name="customer_type" class="java.lang.Integer">
+		<fieldDescription><![CDATA[客户类型]]></fieldDescription>
+	</field>
+	<field name="special_code" class="java.lang.String">
+		<fieldDescription><![CDATA[助记码]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="353" y="9" width="100" height="20" uuid="bf5fa1a7-38e2-4a7d-a24c-b9e1ded8840e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[销售订单]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="207" splitType="Stretch">
+			<staticText>
+				<reportElement x="98" y="11" width="100" height="20" uuid="9fc32071-97af-4f1f-893d-f6a66ff67155"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[销售单号：]]></text>
+			</staticText>
+			<line>
+				<reportElement x="198" y="30" width="150" height="1" uuid="d97eda66-9b04-4de9-9f2c-0fc92d1bdb37"/>
+			</line>
+			<staticText>
+				<reportElement x="414" y="11" width="100" height="20" uuid="b7744d5c-334f-4d3b-86d2-319014666d5e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[客户：]]></text>
+			</staticText>
+			<line>
+				<reportElement x="514" y="30" width="142" height="1" uuid="2903c230-e579-4e45-ad7f-06b877ebb99d"/>
+			</line>
+			<staticText>
+				<reportElement x="353" y="52" width="100" height="20" uuid="ec9a754f-a8c4-46e4-ae59-1cf4e413cc06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[货品信息]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="226" y="11" width="100" height="20" uuid="7707e81a-42de-4585-836e-16a32e65bb50"/>
+				<textFieldExpression><![CDATA[$F{order_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="539" y="11" width="100" height="20" uuid="ce566bf7-980a-44a5-922d-90e4b5891f5b"/>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="98" y="93" width="600" height="100" uuid="afd02768-ad82-4ef0-aad6-df74d0cca179"/>
+				<subreportParameter name="orderCodeSub">
+					<subreportParameterExpression><![CDATA[$P{orderCode}.toString()]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "goodsInfo_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

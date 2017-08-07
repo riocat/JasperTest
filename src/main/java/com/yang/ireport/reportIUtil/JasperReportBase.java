@@ -76,7 +76,7 @@ public abstract class JasperReportBase {
         this.dataSource = dataSource;
     }
 
-    public void createResponse(String type, HttpServletRequest request, HttpServletResponse response, String templetPath, String fileName, boolean withImage) throws Exception {
+    public void createResponse(String type, HttpServletRequest request, HttpServletResponse response, String templetPath, String fileName) throws Exception {
         String filePath = request.getServletContext().getRealPath(templetPath);
         File reportFile = new File(filePath);
 
